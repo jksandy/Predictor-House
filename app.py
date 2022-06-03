@@ -8,9 +8,9 @@ app = Flask(__name__)
 @app.route("/",methods = ["GET","POST"])
 def house_pred():
     med = 0
+    value = 0
     if(request.method == "POST"):
         med  = request.form["medinc"]
-        value = 0
         if(med != ""):
             value = house.house_rate(float(med))
     return render_template("index.html", medval = med, val = value)
